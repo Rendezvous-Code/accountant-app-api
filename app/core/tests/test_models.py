@@ -50,5 +50,3 @@ class ModelTests(TestCase):
             name='Agencija racunovodstvo'
         )
         self.assertEqual(str(account), account.name)
-
-

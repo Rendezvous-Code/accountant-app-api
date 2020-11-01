@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
                                                     PermissionsMixin
-from django.conf import settings
+# from django.conf import settings
 import jsonfield
 
 
@@ -54,18 +54,18 @@ class Account(models.Model):
         max_length=100 * 1024,
         help_text='JSON-encoded content'
     )
-    #key = models.UUIDField(default=uuid.uuid4, editable=False)
+#   key = models.UUIDField(default=uuid.uuid4, editable=False)
 
     ADMIN_DISPLAY = ['name', 'get_owner', 'get_company', 'is_confirmed']
 
     def __str__(self):
         return self.name
 
-    #def get_current_subscription(self):
-    #    subscriptions = self.subscriptions.all()
-    #    if len(subscriptions) == 0:
-    #        return None
-    #    return subscriptions[0]
+#   def get_current_subscription(self):
+#    subscriptions = self.subscriptions.all()
+#    if len(subscriptions) == 0:
+#        return None
+#    return subscriptions[0]
 
     def get_owner(self):
         return self.details.get('owner_name', None)
